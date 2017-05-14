@@ -22,7 +22,7 @@ Item {
          }
          onClicked: {
              brewery.setHltTemp(brewery.getHltTemp()+5);
-             kettleType.wavesVisible = true
+             kettleType.wavesVisible = true             
          }
      }
 }

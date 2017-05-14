@@ -86,6 +86,7 @@ Item {
             Layout.alignment: Qt.AlignCenter
             Layout.preferredWidth: 800
             Layout.preferredHeight: 60
+            clip: true
 
             Text {
                 id: textBrewControl
