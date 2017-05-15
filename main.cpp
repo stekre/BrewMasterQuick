@@ -1,9 +1,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include "ViewManager/mainviewmgr.h"
 #include "textfielddoublevalidator.h"
 #include "brewery.h"
-#include "notification.h"
 
 int main(int argc, char *argv[])
 {                
@@ -14,10 +14,11 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    Notification notification;
-    Brewery brewery;
-    QQmlContext* ctx = engine.rootContext();
-    ctx->setContextProperty("brewery", &brewery);
+    //Notification notification;
+    MainViewMgr mainViewMgr;
+    auto ctx = engine.rootContext();
+    ctx->setContextProperty("MainViewMgr", &mainViewMgr);
+
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     return app.exec();

@@ -2,12 +2,17 @@ TEMPLATE = app
 
 QT += qml quick
 CONFIG += c++11
+static {
+    QT += svg
+    QTPLUGIN += qtvirtualkeyboardplugin
+}
 
 SOURCES += main.cpp \
     textfielddoublevalidator.cpp \
     brewery.cpp \
-    notification.cpp \
-    kettle.cpp
+    kettle.cpp \
+    ViewManager/mainviewmgr.cpp \
+    Model/settings.cpp
 
 RESOURCES += qml.qrc
 
@@ -38,7 +43,8 @@ DISTFILES +=
 HEADERS += \
     textfielddoublevalidator.h \
     brewery.h \
-    notification.h \
-    kettle.h
+    kettle.h \
+    ViewManager/mainviewmgr.h \
+    Model/settings.h
 
 FORMS +=

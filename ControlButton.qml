@@ -11,6 +11,7 @@ Item {
          id: buttonBrewControl
          anchors.centerIn: parent
          text: qsTr(buttonText)
+         font.family: "Impact"
          font.bold: true
          font.pointSize: 20
          checkable: true
@@ -20,9 +21,9 @@ Item {
              color: buttonBrewControl.checked ? "#ff8514" : "#ffffff"
              radius: 4
          }
-         onClicked: {
+         /*onClicked: {
              brewery.setHltTemp(brewery.getHltTemp()+5);
              kettleType.wavesVisible = true
-         }
+         }*/
      }
 }

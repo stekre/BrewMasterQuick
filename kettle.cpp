@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "kettle.h"
 
 Kettle::Kettle(QObject *parent) : QObject(parent)

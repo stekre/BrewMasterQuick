@@ -8,8 +8,12 @@ import QtQuick.Window 2.3
 import TextFieldDoubleValidator 1.0
 
 Item {
-    id: firstPage
-    width: 800
+    function numPad() {
+        numPadDialog.open()
+    }
+
+    width: mWidth
+    height: mHeight
 
 /* MASH PLAN */
 
@@ -128,13 +132,18 @@ Item {
             color: "#000000"
             border.color: "#333"
             border.width: 2
-        }
+        }        
         validator: TextFieldDoubleValidator {
             bottom: 0
             top: 999
             decimals: 0
             notation: "StandardNotation"
         }
+        onPressed: numPad()
+    }
+
+    NumPad{
+        id: numPadDialog
     }
 
     TextField {

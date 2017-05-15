@@ -3,8 +3,8 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
 Item {
-    id: thirdPage
-    width: 800
+    width: mWidth
+    height: mHeight
 
     Rectangle {
         id: rectangle

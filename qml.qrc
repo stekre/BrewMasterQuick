@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>MainForm.ui.qml</file>
+        <file>SwipeViewControl.qml</file>
         <file>Pictures/Background.svg</file>
         <file>main.cpp</file>
         <file>Style/Button.qml</file>
@@ -9,12 +9,6 @@
         <file>BrewControl.qml</file>
         <file>BrewSetup.qml</file>
         <file>Pictures/water.png</file>
-        <file>Pictures/mash.png</file>
-        <file>Pictures/mash2.png</file>
-        <file>Pictures/mash3.png</file>
-        <file>Pictures/mash4.png</file>
-        <file>Pictures/mash5.png</file>
-        <file>Pictures/mash6.png</file>
         <file>Kettle.qml</file>
         <file>ControlButton.qml</file>
         <file>Pictures/Kettle3.svg</file>

@@ -4,10 +4,8 @@ import QtQuick.Layouts 1.3
 
 
 Item {
-    id: secondPage
-    width: 800
-    height: 480
-
+    width: mWidth
+    height: mHeight
 
     ColumnLayout{
         id: columnBrewControl
@@ -63,6 +61,7 @@ Item {
                     Layout.fillWidth: true
                     temperatureText: "70C"
                     literText: "60L"
+                    powerActive: MainViewMgr.hltPowerActive
                 }
 
                 Kettle{
@@ -70,6 +69,7 @@ Item {
                     Layout.fillWidth: true
                     temperatureText: "30C"
                     literText: "20L"
+                    powerActive: MainViewMgr.mltPowerActive
                 }
 
                 Kettle{
@@ -77,6 +77,7 @@ Item {
                     Layout.fillWidth: true
                     temperatureText: "100C"
                     literText: "90L"
+                    powerActive: MainViewMgr.bltPowerActive
                 }
             }
         }
@@ -86,6 +87,7 @@ Item {
             Layout.alignment: Qt.AlignCenter
             Layout.preferredWidth: 800
             Layout.preferredHeight: 60
+            clip: true
 
             Text {
                 id: textBrewControl
@@ -102,8 +104,6 @@ Item {
                     duration: 10000
                     from: 800
                     to: -1*textBrewControl.width
-
-                    //TODO: invisible when x < 0
                 }
             }
         }

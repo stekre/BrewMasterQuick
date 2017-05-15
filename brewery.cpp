@@ -1,3 +1,4 @@
+#include "kettle.h"
 #include "brewery.h"
 
 Brewery::Brewery(QObject *parent) : QObject(parent)
