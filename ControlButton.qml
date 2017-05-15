@@ -21,9 +21,9 @@ Item {
              color: buttonBrewControl.checked ? "#ff8514" : "#ffffff"
              radius: 4
          }
-         /*onClicked: {
-             brewery.setHltTemp(brewery.getHltTemp()+5);
+         onClicked: {
+             //brewery.setHltTemp(brewery.getHltTemp()+5);
              kettleType.wavesVisible = true
-         }*/
+         }
      }
 }

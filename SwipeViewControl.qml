@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 
 
 Rectangle {
+    id: swipeViewControl
     width: mWidth
     height: mHeight
     color: "#000000"

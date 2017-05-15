@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>SwipeViewControl.qml</file>
         <file>Pictures/Background.svg</file>
         <file>main.cpp</file>
         <file>Style/Button.qml</file>
@@ -12,5 +11,10 @@
         <file>Kettle.qml</file>
         <file>ControlButton.qml</file>
         <file>Pictures/Kettle3.svg</file>
+        <file>NumPad.qml</file>
+        <file>SwipeViewControl.qml</file>
+    </qresource>
+    <qresource prefix="/json">
+        <file>settings.json</file>
     </qresource>
 </RCC>

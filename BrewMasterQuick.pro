@@ -1,10 +1,8 @@
 TEMPLATE = app
-
 QT += qml quick
-CONFIG += c++11
+CONFIG += c++11 disable-desktop
 static {
-    QT += svg
-    QTPLUGIN += qtvirtualkeyboardplugin
+    QTPLUGIN += qtvirtualkeyboardplugin QML files
 }
 
 SOURCES += main.cpp \

@@ -14,15 +14,15 @@ Window {
     //maximumWidth: minimumWidth
     title: qsTr(MainViewMgr.appName)
 
-    Connections {
+    /*Connections {
         target: brewery
         onHltTempChanged: {
             console.log("Temp changed")
         }
-    }
+    }*/
 
     SwipeViewControl {
         id: swipeViewControl
-        anchors.fill: parent
-    }    
+        anchors.fill: parent1
+    }
 }
