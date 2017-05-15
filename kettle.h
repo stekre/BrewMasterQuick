@@ -2,7 +2,6 @@
 #define KETTLE_H
 
 #include <QObject>
-#include <stdlib.h>
 
 class Kettle : public QObject
 {

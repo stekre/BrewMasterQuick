@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 Item {
-    id: itemKettle
+    //id: itemKettle
     //anchors.top: rowControlKettle.top
     //anchors.topMargin: 200
     //width: 200
@@ -9,9 +9,11 @@ Item {
 
     property int xPos
     property int yPos
+    property string fontType: "Impact"
     property string temperatureText
     property string literText
     property bool wavesVisible: false
+    property bool powerActive: false
     //TODO: add properties for height of water to display water height
 
     Image {
@@ -27,10 +29,10 @@ Item {
             y: 90
             width: 80
             height: 35
-            color: "#ffffff"
+            color: powerActive ? "#ff0000" : "#ffffff"
             text: qsTr(temperatureText)
+            font.family: fontType
             font.bold: true
-            font.weight: Font.ExtraLight
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 30
         }
@@ -43,6 +45,7 @@ Item {
             height: 35
             color: "#ffffff"
             text: qsTr(literText)
+            font.family: fontType
             font.bold: true
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 30

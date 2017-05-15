@@ -2,7 +2,6 @@
 #define BREWERY_H
 
 #include <QObject>
-//#include <QQmlEngine>
 #include "kettle.h"
 
 class Brewery : public QObject

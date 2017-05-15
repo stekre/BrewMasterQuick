@@ -2,12 +2,17 @@ import QtQuick 2.8
 import QtQuick.Window 2.2
 
 Window {
+    id:root
+
+    property int mWidth: 800
+    property int mHeight: 480
+
     visible: true
-    minimumWidth: 800
-    minimumHeight: 480
+    minimumWidth: mWidth
+    minimumHeight: mHeight
     //maximumHeight: minimumHeight
     //maximumWidth: minimumWidth
-    title: qsTr("BrewMaster")
+    title: qsTr(MainViewMgr.appName)
 
     Connections {
         target: brewery
@@ -16,7 +21,8 @@ Window {
         }
     }
 
-    MainForm {
-        anchors.fill: parent        
-    }
+    SwipeViewControl {
+        id: swipeViewControl
+        anchors.fill: parent
+    }    
 }
