@@ -4,6 +4,7 @@
 #include "ViewManager/mainviewmgr.h"
 #include "textfielddoublevalidator.h"
 #include "brewery.h"
+#include "Model/settings.h"
 
 int main(int argc, char *argv[])
 {                
@@ -14,8 +15,10 @@ int main(int argc, char *argv[])
     qmlRegisterType<TextFieldDoubleValidator>("TextFieldDoubleValidator", 1,0,
                                               "TextFieldDoubleValidator");
 
-    QQmlApplicationEngine engine;
+    Settings applicationSettings;
+    applicationSettings.loadSettings();
 
+    QQmlApplicationEngine engine;
     MainViewMgr mainViewMgr;
     auto ctx = engine.rootContext();
     ctx->setContextProperty("MainViewMgr", &mainViewMgr);

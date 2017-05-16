@@ -12,7 +12,6 @@
         <file>ControlButton.qml</file>
         <file>Pictures/Kettle3.svg</file>
         <file>NumPad.qml</file>
-        <file>SwipeViewControl.qml</file>
     </qresource>
     <qresource prefix="/json">
         <file>settings.json</file>
