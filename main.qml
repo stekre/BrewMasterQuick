@@ -23,6 +23,6 @@ Window {
 
     SwipeViewControl {
         id: swipeViewControl
-        anchors.fill: parent1
-    }
+        anchors.fill: parent
+    }    
 }

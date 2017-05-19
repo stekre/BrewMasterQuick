@@ -8,6 +8,7 @@
 
 int main(int argc, char *argv[])
 {                
+    //qputenv("QML2_IMPORT_PATH", KEYBOARD_STYLE_DIR);
     qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
 
     QGuiApplication app(argc, argv);
@@ -19,6 +20,12 @@ int main(int argc, char *argv[])
     applicationSettings.loadSettings();
 
     QQmlApplicationEngine engine;
+    /*  DEBUG IMPORT PATH
+    for(QString path : engine.importPathList())
+    {
+        qDebug(path.toStdString().c_str());
+    }*/
+
     MainViewMgr mainViewMgr;
     auto ctx = engine.rootContext();
     ctx->setContextProperty("MainViewMgr", &mainViewMgr);

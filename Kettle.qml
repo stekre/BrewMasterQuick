@@ -23,6 +23,7 @@ Item {
         source: "Pictures/Kettle3.svg"
         z: 3
 
+        //When edited this shall display set temp, else it shall display current temp
         TextEdit {
             id: editKettle
             x:30
@@ -35,6 +36,7 @@ Item {
             font.bold: true
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 30
+            inputMethodHints: Qt.ImhDigitsOnly
         }
 
         Text {

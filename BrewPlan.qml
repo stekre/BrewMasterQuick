@@ -127,6 +127,7 @@ Item {
         font.family: "Verdana"
         font.pixelSize: 15
         placeholderText: "Minute"
+        inputMethodHints: Qt.ImhDigitsOnly
         background: Rectangle {
             radius: 4
             color: "#000000"

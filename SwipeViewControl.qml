@@ -15,7 +15,7 @@ Rectangle {
         height: mHeight
 
         currentIndex: 1
-        anchors.fill: parent
+        anchors.fill: parent        
 
         BrewPlan {
             id: brewPlan

@@ -2,8 +2,11 @@ TEMPLATE = app
 QT += qml quick
 CONFIG += c++11 disable-desktop
 static {
-    QTPLUGIN += qtvirtualkeyboardplugin QML files
+    QT += svg
+    QTPLUGIN += qtvirtualkeyboardplugin
 }
+
+QT_VIRTUALKEYBOARD_STYLE=test
 
 SOURCES += main.cpp \
     textfielddoublevalidator.cpp \
@@ -15,7 +18,7 @@ SOURCES += main.cpp \
 RESOURCES += qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
+#QML2_IMPORT_PATH = "C:/MySoftwareProjects/BrewMasterQuick/Style"
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =
@@ -25,6 +28,7 @@ QML_DESIGNER_IMPORT_PATH =
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
+DEFINES += KEYBOARD_STYLE_DIR=\\\"$$_PRO_FILE_PWD_/Style\\\"
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -36,7 +40,8 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES +=
+DISTFILES += \
+    Style/QtQuick/VirtualKeyboard/Styles/test/style.qml \
 
 HEADERS += \
     textfielddoublevalidator.h \

@@ -108,4 +108,8 @@ Item {
             }
         }
     }
+
+    NumPad{
+        id:keyboard
+    }
 }
