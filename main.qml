@@ -24,5 +24,9 @@ Window {
     SwipeViewControl {
         id: swipeViewControl
         anchors.fill: parent
-    }    
+    }
+
+    /*NumPad{
+        id:keyboard
+    }*/
 }

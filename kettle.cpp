@@ -6,12 +6,12 @@ Kettle::Kettle(QObject *parent) : QObject(parent)
     mCurrentTemp.push_back(10);
 }
 
-double Kettle::temp() const
+double Kettle::currentTemp() const
 {
     return mCurrentTemp.at(0);
 }
 
-void Kettle::setTemp(const double &temp)
+void Kettle::setCurrentTemp(const double &temp)
 {
     mCurrentTemp.at(0) = temp;
 }
@@ -34,4 +34,14 @@ double Kettle::wantedTemp() const
 void Kettle::setWantedTemp(double wantedTemp)
 {
     mWantedTemp = wantedTemp;
+}
+
+bool Kettle::getHeaterActive() const
+{
+    return heaterActive;
+}
+
+void Kettle::setHeaterActive(bool value)
+{
+    heaterActive = value;
 }

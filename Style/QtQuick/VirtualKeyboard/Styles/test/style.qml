@@ -58,7 +58,7 @@ KeyboardStyle {
     keyboardRelativeBottomMargin: 86 / keyboardDesignHeight
 
     keyboardBackground: Rectangle {
-        opacity: 0.8
+        opacity: 0.7
         color: "black"
     }
 
@@ -175,7 +175,7 @@ KeyboardStyle {
         ]
     }
 
-    languageKeyPanel: KeyPanel {
+/*    languageKeyPanel: KeyPanel {
         Rectangle {
             id: languageKeyBackground
             radius: 5
@@ -218,7 +218,7 @@ KeyboardStyle {
             }
         ]
     }
-
+*/
     enterKeyPanel: KeyPanel {
         Rectangle {
             id: enterKeyBackground
@@ -465,7 +465,7 @@ KeyboardStyle {
         ]
     }
 
-    symbolKeyPanel: KeyPanel {
+/*    symbolKeyPanel: KeyPanel {
         Rectangle {
             id: symbolKeyBackground
             radius: 5
@@ -515,8 +515,8 @@ KeyboardStyle {
             }
         ]
     }
-
-    modeKeyPanel: KeyPanel {
+*/
+/*    modeKeyPanel: KeyPanel {
         Rectangle {
             id: modeKeyBackground
             radius: 5
@@ -579,8 +579,8 @@ KeyboardStyle {
             }
         ]
     }
-
-    handwritingKeyPanel: KeyPanel {
+*/
+/*    handwritingKeyPanel: KeyPanel {
         Rectangle {
             id: hwrKeyBackground
             radius: 5
@@ -624,7 +624,7 @@ KeyboardStyle {
             }
         ]
     }
-
+*/
     characterPreviewMargin: 0
     characterPreviewDelegate: Item {
         property string text
@@ -651,7 +651,7 @@ KeyboardStyle {
             }
         }
     }
-
+/*
     alternateKeysListItemWidth: 99 * scaleHint
     alternateKeysListItemHeight: 150 * scaleHint
     alternateKeysListDelegate: Item {
@@ -686,8 +686,8 @@ KeyboardStyle {
         color: "#1e1b18"
         radius: 5
     }
-
-    selectionListHeight: 85 * scaleHint
+*/
+/*    selectionListHeight: 85 * scaleHint
     selectionListDelegate: SelectionListItem {
         id: selectionListItem
         width: Math.round(selectionListLabel.width + selectionListLabel.anchors.leftMargin * 2)
@@ -739,8 +739,8 @@ KeyboardStyle {
         NumberAnimation { property: "y"; to: -wordCandidateView.height; duration: 200 }
         NumberAnimation { property: "opacity"; to: 0; duration: 200 }
     }
-
-    navigationHighlight: Rectangle {
+*/
+/*    navigationHighlight: Rectangle {
         color: "transparent"
         border.color: "yellow"
         border.width: 5
@@ -954,8 +954,8 @@ KeyboardStyle {
         sourceSize.width: 20
         source: "images/selectionhandle-bottom.svg"
     }
-
-    fullScreenInputContainerBackground: Rectangle {
+*/
+    /*fullScreenInputContainerBackground: Rectangle {
         color: "#FFF"
     }
 
@@ -973,5 +973,5 @@ KeyboardStyle {
         visible: parent.blinkStatus
     }
 
-    fullScreenInputFont.pixelSize: 58 * scaleHint
+    fullScreenInputFont.pixelSize: 58 * scaleHint*/
 }

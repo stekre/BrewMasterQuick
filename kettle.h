@@ -9,8 +9,8 @@ class Kettle : public QObject
 public:
     explicit Kettle(QObject *parent = 0);
 
-    double temp() const;
-    void setTemp(const double &temp);
+    double currentTemp() const;
+    void setCurrentTemp(const double &currentTemp);
 
     double flow() const;
     void setFlow(const double &flow);
@@ -18,14 +18,18 @@ public:
     double wantedTemp() const;
     void setWantedTemp(double setpointTemp);
 
+    bool getHeaterActive() const;
+    void setHeaterActive(bool value);
+
 signals:
 
 public slots:
 
 private:
-    std::vector<double> mCurrentTemp;
-    std::vector<double> mCurrentFlow;
-    double mWantedTemp;
+    std::vector<double> mCurrentTemp{0};
+    std::vector<double> mCurrentFlow{0};
+    double mWantedTemp{0};
+    bool heaterActive{false};
 };
 
 #endif // KETTLE_H

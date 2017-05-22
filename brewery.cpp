@@ -7,15 +7,15 @@ Brewery::Brewery(QObject *parent) : QObject(parent)
 
 void Brewery::setHltTemp(double temp)
 {
-    if(temp != hotLiquorTank.temp())
+    if(temp != hotLiquorTank.currentTemp())
     {
-        hotLiquorTank.setTemp(temp);
+        hotLiquorTank.setCurrentTemp(temp);
         emit hltTempChanged();
     }
 }
 
 double Brewery::getHltTemp()
 {
-    return hotLiquorTank.temp();
+    return hotLiquorTank.currentTemp();
 }
 

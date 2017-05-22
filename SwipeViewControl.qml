@@ -37,4 +37,8 @@ Rectangle {
         anchors.bottom: view.bottom
         anchors.horizontalCenter: parent.horizontalCenter
     }
+
+    NumPad{
+            id:keyboard
+    }
 }

@@ -7,7 +7,7 @@
 class Brewery : public QObject
 {
     Q_OBJECT
-    //Q_PROPERTY(double hltTemp READ getHltTemp WRITE setHltTemp NOTIFY hltTempChanged)
+    Q_PROPERTY(double hltTemp READ getHltTemp WRITE setHltTemp NOTIFY hltTempChanged)
 public:
     explicit Brewery(QObject *parent = 0);
     //void setHltTemp(double temp);

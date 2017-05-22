@@ -8,9 +8,9 @@ import QtQuick.Window 2.3
 import TextFieldDoubleValidator 1.0
 
 Item {
-    function numPad() {
+    /*function numPad() {
         numPadDialog.open()
-    }
+    }*/
 
     width: mWidth
     height: mHeight
@@ -140,12 +140,12 @@ Item {
             decimals: 0
             notation: "StandardNotation"
         }
-        onPressed: numPad()
+        //onPressed: numPad()
     }
 
-    NumPad{
+    /*NumPad{
         id: numPadDialog
-    }
+    }*/
 
     TextField {
         id: textFieldTemperature

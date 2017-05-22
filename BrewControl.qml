@@ -4,6 +4,13 @@ import QtQuick.Layouts 1.3
 
 
 Item {
+    //property bool powerOn: value
+
+    function toggleHltPower()
+    {
+        MainViewMgr.setHltPowerActive(!MainViewMgr.hltPowerActive)
+    }
+
     width: mWidth
     height: mHeight
 
@@ -23,24 +30,33 @@ Item {
                 anchors.fill: parent
 
                 ControlButton{
-                    id: buttonFill
-                    Layout.fillWidth: true
-                    buttonText: "FILL"
-                    kettleType: kettleHlt
+                    id: buttonBrewControl
+                    Layout.alignment: Qt.AlignCenter
+                    buttonText: "FILL"                    
+                    onClicked: {
+                        toggleHltPower()
+                        kettleHlt.wavesVisible = true
+                    }
                 }
 
                 ControlButton{
                     id: buttonMash
-                    Layout.fillWidth: true
-                    buttonText: "MASH"
-                    kettleType: kettleMlt
+                    Layout.alignment: Qt.AlignCenter
+                    buttonText: "MASH"                    
+                    onClicked: {
+                        MainViewMgr.setMltPowerActive(true)
+                        kettleMlt.wavesVisible = true
+                    }
                 }
 
                 ControlButton{
                     id: buttonBoil
-                    Layout.fillWidth: true
-                    buttonText: "BOIL"
-                    kettleType: kettleBlt
+                    Layout.alignment: Qt.AlignCenter
+                    buttonText: "BOIL"                    
+                    onClicked: {
+                        MainViewMgr.setBltPowerActive(true)
+                        kettleBlt.wavesVisible = true
+                    }
                 }
             }
         }
@@ -59,15 +75,17 @@ Item {
                 Kettle{
                     id: kettleHlt
                     Layout.fillWidth: true
-                    temperatureText: "70C"
+                    temperature: MainViewMgr.hltTemperature
+                    wantedTemperature: MainViewMgr.hltWantedTemp
                     literText: "60L"
                     powerActive: MainViewMgr.hltPowerActive
+                    onWantedTemperatureChanged: MainViewMgr.hltWantedTemp = wantedTemperature
                 }
 
                 Kettle{
                     id: kettleMlt
                     Layout.fillWidth: true
-                    temperatureText: "30C"
+                    temperature: 30
                     literText: "20L"
                     powerActive: MainViewMgr.mltPowerActive
                 }
@@ -75,7 +93,7 @@ Item {
                 Kettle{
                     id: kettleBlt
                     Layout.fillWidth: true
-                    temperatureText: "100C"
+                    temperature: 100
                     literText: "90L"
                     powerActive: MainViewMgr.bltPowerActive
                 }
@@ -109,7 +127,5 @@ Item {
         }
     }
 
-    NumPad{
-        id:keyboard
-    }
+    /**/
 }

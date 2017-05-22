@@ -1,4 +1,7 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Styles 1.4
+import TextFieldDoubleValidator 1.0
 
 Item {
     //id: itemKettle
@@ -10,11 +13,30 @@ Item {
     property int xPos
     property int yPos
     property string fontType: "Impact"
-    property string temperatureText
+    property double temperature
+    property double wantedTemperature
     property string literText
     property bool wavesVisible: false
     property bool powerActive: false
+    property string tempText
     //TODO: add properties for height of water to display water height
+
+    function setEditKettleText()
+    {
+        if(editKettle.cursorVisible)
+        {
+            editKettle.text = wantedTemperature
+            editKettle.selectAll()
+            //editKettle.text = "2"
+        }
+        else
+        {
+            tempText = editKettle.text.replace(",",".")
+            wantedTemperature = parseFloat(tempText)
+            editKettle.text = temperature.toString()+" C"
+            //qrc:/Kettle.qml:33: Error: Cannot assign QString to double
+        }
+    }
 
     Image {
         id: imageKettle
@@ -24,20 +46,59 @@ Item {
         z: 3
 
         //When edited this shall display set temp, else it shall display current temp
-        TextEdit {
+        TextField {
+            id: editKettle
+            x:30
+            y: 90
+            width: 90
+            height: 35
+            color: powerActive ? "#ff0000" : "#ffffff"
+            text: qsTr(temperature+" C")
+            font.family: fontType
+            font.bold: true
+            background: Rectangle {
+                color: "transparent"
+            }
+            selectionColor: "transparent"
+            topPadding: 0
+            bottomPadding: 0
+            verticalAlignment: Text.AlignBottom
+            horizontalAlignment: Text.AlignHCenter
+            font.pixelSize: 30
+            inputMethodHints: Qt.ImhDigitsOnly
+            onCursorVisibleChanged: {
+                console.log("cursor visible changed")
+                setEditKettleText()
+            }
+            validator: TextFieldDoubleValidator {
+                bottom: 0
+                top: 100
+                decimals: 1
+                notation: "StandardNotation"
+            }
+        }
+        /*TextField {
             id: editKettle
             x:30
             y: 90
             width: 80
             height: 35
             color: powerActive ? "#ff0000" : "#ffffff"
-            text: qsTr(temperatureText)
             font.family: fontType
             font.bold: true
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 30
             inputMethodHints: Qt.ImhDigitsOnly
-        }
+            placeholderText: qsTr(temperatureText)
+
+            validator: TextFieldDoubleValidator {
+                bottom: 0
+                top: 999
+                decimals: 0
+                notation: "StandardNotation"
+            }
+            //onPressed: numPad()
+        }*/
 
         Text {
             id: textKettleLiter

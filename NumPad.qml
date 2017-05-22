@@ -5,26 +5,58 @@ import QtQuick.VirtualKeyboard.Settings 2.1
 
 /**/
 InputPanel {
+    //property int cIndex: view.currentIndex
+
     id: keyboard;
     y: parent.height
     anchors.left: parent.left
     anchors.right: parent.right
     z: 3
 
-    Component.onCompleted: {
-        VirtualKeyboardSettings.stylename = "test"
-        console.log(VirtualKeyboardSettings.styleName)        
-    }
 
-    states: State {
-        name: "visible";
-        when: keyboard.active;
-        PropertyChanges {
-            target: keyboard;
-            // position the top of the keyboard to the bottom of the text input field
-            y: parent.height/2
+    /*Component.onCompleted: {
+        VirtualKeyboardSettings.stylename = "test"
+        console.log(VirtualKeyboardSettings.styleName)
+    }*/
+
+    onActiveChanged: {
+        if(!active)
+        {
+            forceActiveFocus()
+            console.log("Keyboard closed")
         }
     }
+
+    states:[
+        State {
+            name: "visible";
+            when: keyboard.active;
+            PropertyChanges {
+                target: keyboard;
+                // position the top of the keyboard to the bottom of the text input field
+                y: {
+                    if(view.currentIndex == 0)
+                    {
+                        90
+                    }
+                    else
+                    {
+                        parent.height/2
+                    }
+                    //A hack to set position based on a text input InputMethodHints
+                    /*if(InputContext.inputMethodHints == 0)
+                {
+                    90
+                }
+                else
+                {
+                    parent.height/2
+                }*/
+                }
+            }
+        }
+    ]
+
     //x: (parent.width/2)-(width/2)
     //y: (parent.height/2)-(height/2)
     //y: screenHeight; // position the top of the keyboard to the bottom of the screen/display
