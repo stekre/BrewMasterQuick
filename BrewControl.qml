@@ -5,10 +5,23 @@ import QtQuick.Layouts 1.3
 
 Item {
     //property bool powerOn: value
+    property double myLiter: 0
 
     function toggleHltPower()
     {
-        MainViewMgr.setHltPowerActive(!MainViewMgr.hltPowerActive)
+        MainViewMgr.brewery.hlt.heaterActive = !MainViewMgr.brewery.hlt.heaterActive
+        myLiter+=10
+    }
+
+    function toggleMltPower()
+    {
+        MainViewMgr.brewery.mlt.heaterActive = !MainViewMgr.brewery.mlt.heaterActive
+        myLiter-=10
+    }
+
+    function toggleBltPower()
+    {
+        MainViewMgr.brewery.blt.heaterActive = !MainViewMgr.brewery.blt.heaterActive
     }
 
     width: mWidth
@@ -44,7 +57,7 @@ Item {
                     Layout.alignment: Qt.AlignCenter
                     buttonText: "MASH"                    
                     onClicked: {
-                        MainViewMgr.setMltPowerActive(true)
+                        toggleMltPower()
                         kettleMlt.wavesVisible = true
                     }
                 }
@@ -54,7 +67,7 @@ Item {
                     Layout.alignment: Qt.AlignCenter
                     buttonText: "BOIL"                    
                     onClicked: {
-                        MainViewMgr.setBltPowerActive(true)
+                        toggleBltPower()
                         kettleBlt.wavesVisible = true
                     }
                 }
@@ -75,27 +88,31 @@ Item {
                 Kettle{
                     id: kettleHlt
                     Layout.fillWidth: true
-                    temperature: MainViewMgr.hltTemperature
-                    wantedTemperature: MainViewMgr.hltWantedTemp
-                    literText: "60L"
-                    powerActive: MainViewMgr.hltPowerActive
-                    onWantedTemperatureChanged: MainViewMgr.hltWantedTemp = wantedTemperature
+                    temperature: MainViewMgr.brewery.hlt.currentTemp
+                    wantedTemperature: MainViewMgr.brewery.hlt.wantedTemp
+                    liter: myLiter
+                    powerActive: MainViewMgr.brewery.hlt.heaterActive
+                    onWantedTemperatureChanged: MainViewMgr.brewery.hlt.wantedTemp = wantedTemperature
                 }
 
                 Kettle{
                     id: kettleMlt
                     Layout.fillWidth: true
-                    temperature: 30
-                    literText: "20L"
-                    powerActive: MainViewMgr.mltPowerActive
+                    temperature: MainViewMgr.brewery.mlt.currentTemp
+                    wantedTemperature: MainViewMgr.brewery.mlt.wantedTemp
+                    liter: 20
+                    powerActive: MainViewMgr.brewery.mlt.heaterActive
+                    onWantedTemperatureChanged: MainViewMgr.brewery.mlt.wantedTemp = wantedTemperature
                 }
 
                 Kettle{
                     id: kettleBlt
                     Layout.fillWidth: true
-                    temperature: 100
-                    literText: "90L"
-                    powerActive: MainViewMgr.bltPowerActive
+                    temperature: MainViewMgr.brewery.blt.currentTemp
+                    wantedTemperature: MainViewMgr.brewery.blt.wantedTemp
+                    liter: MainViewMgr.brewery.blt.currentLiter
+                    powerActive: MainViewMgr.brewery.blt.heaterActive
+                    onWantedTemperatureChanged: MainViewMgr.brewery.blt.wantedTemp = wantedTemperature
                 }
             }
         }

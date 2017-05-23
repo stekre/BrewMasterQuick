@@ -15,10 +15,22 @@ Item {
     property string fontType: "Impact"
     property double temperature
     property double wantedTemperature
-    property string literText
+    property double liter
     property bool wavesVisible: false
     property bool powerActive: false
-    property string tempText
+    property string tempText    
+    property int maxLiter: 120
+    property int yMaxLiter: 25
+    property int yPrevLiter: 215
+    property int yCurrentLiter: 25
+
+    onLiterChanged: {
+        yCurrentLiter = 215-(((liter|0)/maxLiter)*190)
+        //console.log(yCurrentLiter)
+        fillAnimation.restart()
+        yPrevLiter = 215-(((liter|0)/maxLiter)*190)
+        //console.log(yPrevLiter)
+    }
     //TODO: add properties for height of water to display water height
 
     function setEditKettleText()
@@ -27,14 +39,12 @@ Item {
         {
             editKettle.text = wantedTemperature
             editKettle.selectAll()
-            //editKettle.text = "2"
         }
         else
         {
             tempText = editKettle.text.replace(",",".")
             wantedTemperature = parseFloat(tempText)
             editKettle.text = temperature.toString()+" C"
-            //qrc:/Kettle.qml:33: Error: Cannot assign QString to double
         }
     }
 
@@ -107,7 +117,7 @@ Item {
             width: 80
             height: 35
             color: "#ffffff"
-            text: qsTr(literText)
+            text: qsTr(liter+" L")
             font.family: fontType
             font.bold: true
             horizontalAlignment: Text.AlignHCenter
@@ -133,10 +143,10 @@ Item {
                     target: wavesKettle
                     property: "y"
                     loops: 1
-                    duration: 10000
-                    from: 215
-                    to: 25
-                    running: wavesVisible
+                    duration: 1000
+                    from: yPrevLiter
+                    to: yCurrentLiter
+                    running: wavesVisible                    
                 }
 
                 Image {

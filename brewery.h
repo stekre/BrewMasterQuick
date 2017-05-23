@@ -4,37 +4,35 @@
 #include <QObject>
 #include "kettle.h"
 
-class Brewery : public QObject
+namespace brewmaster
 {
-    Q_OBJECT
-    Q_PROPERTY(double hltTemp READ getHltTemp WRITE setHltTemp NOTIFY hltTempChanged)
-public:
-    explicit Brewery(QObject *parent = 0);
-    //void setHltTemp(double temp);
-    //double getHltTemp();
-signals:
-    void hltTempChanged();
-public slots:
-    void setHltTemp(double temp);
-    double getHltTemp();
-private:
-    //double m_hltTemp;
-    Kettle hotLiquorTank;
-    Kettle mashLiquorTank;
-    Kettle boilLiquorTank;
-};
+    class Brewery : public QObject
+    {
+        Q_OBJECT
+        Q_PROPERTY(Kettle* hlt READ hlt WRITE setHlt NOTIFY hltChanged)
+        Q_PROPERTY(Kettle* mlt READ mlt WRITE setMlt NOTIFY mltChanged)
+        Q_PROPERTY(Kettle* blt READ blt WRITE setBlt NOTIFY bltChanged)
 
-/*// Second, define the singleton type provider function (callback).
-static QObject *brewerySingleton(QQmlEngine *engine, QJSEngine *scriptEngine)
-{
-    Q_UNUSED(engine)
-    Q_UNUSED(scriptEngine)
+    public:
+        explicit Brewery(QObject *parent = 0);
+        Kettle* hlt() const;
+        Kettle* mlt() const;
+        Kettle* blt() const;
 
-    Brewery *brewery = new Brewery();
-    return brewery;
+    signals:
+        void hltChanged(Kettle* hlt);
+        void mltChanged(Kettle* mlt);
+        void bltChanged(Kettle* blt);
+
+    public slots:
+        void setHlt(Kettle* hlt);
+        void setMlt(Kettle* mlt);
+        void setBlt(Kettle* blt);
+
+    private:
+        Kettle* m_hlt;
+        Kettle* m_mlt;
+        Kettle* m_blt;
+    };
 }
-
-// Third, register the singleton type provider with QML by calling this function in an initialization function.
-qmlRegisterSingletonType<Brewery>("BrewMasterQuick.mybrewery", 1, 0, "MyBrewery", brewerySingleton);
-*/
 #endif // BREWERY_H

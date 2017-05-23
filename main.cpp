@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
         qDebug(path.toStdString().c_str());
     }*/
 
-    MainViewMgr mainViewMgr;
+    brewmaster::MainViewMgr mainViewMgr;
     auto ctx = engine.rootContext();
     ctx->setContextProperty("MainViewMgr", &mainViewMgr);
 
