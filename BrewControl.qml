@@ -11,12 +11,14 @@ Item {
     {
         MainViewMgr.brewery.hlt.heaterActive = !MainViewMgr.brewery.hlt.heaterActive
         myLiter+=10
+        console.log(myLiter)
     }
 
     function toggleMltPower()
     {
         MainViewMgr.brewery.mlt.heaterActive = !MainViewMgr.brewery.mlt.heaterActive
         myLiter-=10
+        console.log(myLiter)
     }
 
     function toggleBltPower()
@@ -43,12 +45,22 @@ Item {
                 anchors.fill: parent
 
                 ControlButton{
-                    id: buttonBrewControl
+                    id: buttonFill
                     Layout.alignment: Qt.AlignCenter
                     buttonText: "FILL"                    
                     onClicked: {
                         toggleHltPower()
                         kettleHlt.wavesVisible = true
+                    }
+                }
+
+                ControlButton{
+                    id: buttonHeat
+                    Layout.alignment: Qt.AlignCenter
+                    buttonText: "HEAT"
+                    onClicked: {
+                        //toggleHltPower()
+                        //kettleHlt.wavesVisible = true
                     }
                 }
 
@@ -63,9 +75,29 @@ Item {
                 }
 
                 ControlButton{
+                    id: buttonCirculate
+                    Layout.alignment: Qt.AlignCenter
+                    buttonText: "STEP"
+                    onClicked: {
+                        toggleMltPower()
+                        kettleMlt.wavesVisible = true
+                    }
+                }
+
+                ControlButton{
                     id: buttonBoil
                     Layout.alignment: Qt.AlignCenter
                     buttonText: "BOIL"                    
+                    onClicked: {
+                        toggleBltPower()
+                        kettleBlt.wavesVisible = true
+                    }
+                }
+
+                ControlButton{
+                    id: buttonCool
+                    Layout.alignment: Qt.AlignCenter
+                    buttonText: "COOL"
                     onClicked: {
                         toggleBltPower()
                         kettleBlt.wavesVisible = true
@@ -123,6 +155,16 @@ Item {
             Layout.preferredWidth: 800
             Layout.preferredHeight: 60
             clip: true
+
+            ControlButton{
+                id: buttonHops
+                anchors.centerIn: parent
+                buttonText: "HOPS ADDED"
+                onClicked: {
+                    //toggleBltPower()
+                    //kettleBlt.wavesVisible = true
+                }
+            }
 
             Text {
                 id: textBrewControl

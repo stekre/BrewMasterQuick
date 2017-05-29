@@ -3,6 +3,7 @@ import QtQuick.Controls 2.2
 
 Button {
     property string buttonText
+    property int buttonWidth: (buttonText.length*14)+25
 
     id: buttonBrewControl
     text: qsTr(buttonText)
@@ -11,7 +12,7 @@ Button {
     font.pointSize: 20
     checkable: true
     background: Rectangle {
-        implicitWidth: 100
+        implicitWidth: buttonWidth
         implicitHeight: 40
         color: buttonBrewControl.checked ? "#ff8514" : "#ffffff"
         radius: 4

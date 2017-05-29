@@ -28,7 +28,7 @@ Item {
                     font.bold: true
                     font.family: "Verdana"
                     color: "#ffffff"
-                    text: Temperature +"C "
+                    text: model.modelData.temperature +"C "
                 }
                 Text {
                     width: 200
@@ -36,7 +36,7 @@ Item {
                     font.bold: true
                     font.family: "Verdana"
                     color: "#ffffff"
-                    text: "From Minute " + Minute
+                    text: "From Minute " + model.modelData.minute
                 }
             }
         }
@@ -73,7 +73,7 @@ Item {
               y: 8
               width: 257
               height: 195
-              model: listModel
+              model: MainViewMgr.brewplan
               delegate: listDelegate
               focus: true
         }

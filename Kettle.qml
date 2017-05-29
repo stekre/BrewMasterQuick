@@ -16,6 +16,7 @@ Item {
     property double temperature
     property double wantedTemperature
     property double liter
+    property double currentLiter    //crash if liter is set from Kettle
     property bool wavesVisible: false
     property bool powerActive: false
     property string tempText    
@@ -25,10 +26,25 @@ Item {
     property int yCurrentLiter: 25
 
     onLiterChanged: {
-        yCurrentLiter = 215-(((liter|0)/maxLiter)*190)
-        //console.log(yCurrentLiter)
+        currentLiter = liter
+        console.log("liter is " +currentLiter)
+
+        if(currentLiter<0)
+        {
+            currentLiter = 0
+            console.log("liter set to " +currentLiter)
+        }
+        else if(currentLiter>120)
+        {
+            currentLiter = 120
+            console.log("liter set to " +currentLiter)
+        }
+
+        yCurrentLiter = 215-(((currentLiter|0)/maxLiter)*190)
+        console.log("yCurrentLiter: " +yCurrentLiter)
         fillAnimation.restart()
-        yPrevLiter = 215-(((liter|0)/maxLiter)*190)
+        yPrevLiter = yCurrentLiter//215-(((liter|0)/maxLiter)*190)
+
         //console.log(yPrevLiter)
     }
     //TODO: add properties for height of water to display water height
@@ -117,7 +133,7 @@ Item {
             width: 80
             height: 35
             color: "#ffffff"
-            text: qsTr(liter+" L")
+            text: qsTr(currentLiter+" L")
             font.family: fontType
             font.bold: true
             horizontalAlignment: Text.AlignHCenter
