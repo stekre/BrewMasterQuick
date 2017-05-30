@@ -44,27 +44,27 @@ Item {
                 Layout.alignment: Qt.AlignTop
                 anchors.fill: parent
 
-                ControlButton{
+                /*ControlButton{
                     id: buttonFill
                     Layout.alignment: Qt.AlignCenter
-                    buttonText: "FILL"                    
+                    buttonText: "FILL"
                     onClicked: {
                         toggleHltPower()
                         kettleHlt.wavesVisible = true
                     }
-                }
+                }*/
 
                 ControlButton{
                     id: buttonHeat
                     Layout.alignment: Qt.AlignCenter
-                    buttonText: "HEAT"
+                    buttonText: "HEAT WATER"
                     onClicked: {
                         //toggleHltPower()
                         //kettleHlt.wavesVisible = true
                     }
                 }
 
-                ControlButton{
+                /*ControlButton{
                     id: buttonMash
                     Layout.alignment: Qt.AlignCenter
                     buttonText: "MASH"                    
@@ -72,12 +72,12 @@ Item {
                         toggleMltPower()
                         kettleMlt.wavesVisible = true
                     }
-                }
+                }*/
 
                 ControlButton{
                     id: buttonCirculate
                     Layout.alignment: Qt.AlignCenter
-                    buttonText: "STEP"
+                    buttonText: "CIRCULATE"
                     onClicked: {
                         toggleMltPower()
                         kettleMlt.wavesVisible = true
@@ -87,7 +87,7 @@ Item {
                 ControlButton{
                     id: buttonBoil
                     Layout.alignment: Qt.AlignCenter
-                    buttonText: "BOIL"                    
+                    buttonText: "BOIL WORT"
                     onClicked: {
                         toggleBltPower()
                         kettleBlt.wavesVisible = true
@@ -97,7 +97,7 @@ Item {
                 ControlButton{
                     id: buttonCool
                     Layout.alignment: Qt.AlignCenter
-                    buttonText: "COOL"
+                    buttonText: "COOL WORT"
                     onClicked: {
                         toggleBltPower()
                         kettleBlt.wavesVisible = true
@@ -117,6 +117,18 @@ Item {
                 Layout.alignment: Qt.AlignTop
                 anchors.fill: parent
 
+                Button {
+                    id: image1
+                    Layout.minimumWidth: 100
+                    checkable: true
+                    z: 3
+                    background: Image {
+                        source: image1.checked ? "Pictures/pump3.svg" : "Pictures/pump2.svg"
+                        sourceSize.width: 100
+                        anchors.centerIn: parent
+                    }
+                }
+
                 Kettle{
                     id: kettleHlt
                     Layout.fillWidth: true
@@ -125,6 +137,18 @@ Item {
                     liter: myLiter
                     powerActive: MainViewMgr.brewery.hlt.heaterActive
                     onWantedTemperatureChanged: MainViewMgr.brewery.hlt.wantedTemp = wantedTemperature
+                }
+
+                Button {
+                    id: image2
+                    Layout.minimumWidth: 100
+                    checkable: true
+                    z: 3
+                    background: Image {
+                        source: image2.checked ? "Pictures/pump3.svg" : "Pictures/pump2.svg"
+                        sourceSize.width: 100
+                        anchors.centerIn: parent
+                    }
                 }
 
                 Kettle{
@@ -137,6 +161,18 @@ Item {
                     onWantedTemperatureChanged: MainViewMgr.brewery.mlt.wantedTemp = wantedTemperature
                 }
 
+                Button {
+                    id: image3
+                    Layout.minimumWidth: 100
+                    checkable: true
+                    z: 3
+                    background: Image {
+                        source: image3.checked ? "Pictures/pump3.svg" : "Pictures/pump2.svg"
+                        sourceSize.width: 100
+                        anchors.centerIn: parent
+                    }
+                }
+
                 Kettle{
                     id: kettleBlt
                     Layout.fillWidth: true
@@ -145,6 +181,18 @@ Item {
                     liter: MainViewMgr.brewery.blt.currentLiter
                     powerActive: MainViewMgr.brewery.blt.heaterActive
                     onWantedTemperatureChanged: MainViewMgr.brewery.blt.wantedTemp = wantedTemperature
+                }
+
+                Button {
+                    id: image5
+                    Layout.minimumWidth: 100
+                    checkable: true
+                    z: 3
+                    background: Image {
+                        source: image5.checked ? "Pictures/pump3.svg" : "Pictures/pump2.svg"
+                        sourceSize.width: 100
+                        anchors.centerIn: parent
+                    }
                 }
             }
         }
