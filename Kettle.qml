@@ -4,7 +4,7 @@ import QtQuick.Controls.Styles 1.4
 import TextFieldDoubleValidator 1.0
 
 Item {
-    //id: itemKettle
+    //id: itemKettle    
     //anchors.top: rowControlKettle.top
     //anchors.topMargin: 200
     //width: 200
@@ -66,7 +66,7 @@ Item {
 
     Image {
         id: imageKettle
-        anchors.centerIn: parent
+        //anchors.centerIn: parent
         sourceSize.width: 136
         source: "Pictures/Kettle3.svg"
         z: 3

@@ -14,7 +14,9 @@ SOURCES += main.cpp \
     kettle.cpp \
     ViewManager/mainviewmgr.cpp \
     Model/settings.cpp \
-    Model/brewplan.cpp
+    Model/brewplan.cpp \
+    Model/mashdata.cpp \
+    Model/hopsdata.cpp
 
 RESOURCES += qml.qrc
 
@@ -50,6 +52,8 @@ HEADERS += \
     kettle.h \
     ViewManager/mainviewmgr.h \
     Model/settings.h \
-    Model/brewplan.h
+    Model/brewplan.h \
+    Model/mashdata.h \
+    Model/hopsdata.h
 
 FORMS +=

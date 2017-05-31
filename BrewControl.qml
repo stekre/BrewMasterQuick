@@ -108,7 +108,7 @@ Item {
 
         Item{
             id: itemBrewControlKettle
-            Layout.alignment: Qt.AlignCenter
+            //Layout.alignment: Qt.AlignCenter
             Layout.preferredWidth: 800
             Layout.preferredHeight: 300
 
@@ -117,9 +117,16 @@ Item {
                 Layout.alignment: Qt.AlignTop
                 anchors.fill: parent
 
+                /*Rectangle{
+                    Layout.minimumWidth: 100
+                    Layout.minimumHeight: 100
+                    color: "red"
+                }*/
                 Button {
                     id: image1
                     Layout.minimumWidth: 100
+                    anchors.verticalCenter: kettleHlt.verticalCenter
+                    anchors.right: kettleHlt.left
                     checkable: true
                     z: 3
                     background: Image {
@@ -128,18 +135,20 @@ Item {
                         anchors.centerIn: parent
                     }
                 }
-
                 Kettle{
                     id: kettleHlt
-                    Layout.fillWidth: true
+                    Layout.minimumWidth: 150
+                    Layout.minimumHeight: parent.height
                     temperature: MainViewMgr.brewery.hlt.currentTemp
                     wantedTemperature: MainViewMgr.brewery.hlt.wantedTemp
                     liter: myLiter
                     powerActive: MainViewMgr.brewery.hlt.heaterActive
                     onWantedTemperatureChanged: MainViewMgr.brewery.hlt.wantedTemp = wantedTemperature
+
+
                 }
 
-                Button {
+                /*Button {
                     id: image2
                     Layout.minimumWidth: 100
                     checkable: true
@@ -149,11 +158,13 @@ Item {
                         sourceSize.width: 100
                         anchors.centerIn: parent
                     }
-                }
+                }*/
 
                 Kettle{
                     id: kettleMlt
-                    Layout.fillWidth: true
+                    //Layout.fillWidth: true
+                    Layout.minimumWidth: 150
+                    Layout.minimumHeight: 300
                     temperature: MainViewMgr.brewery.mlt.currentTemp
                     wantedTemperature: MainViewMgr.brewery.mlt.wantedTemp
                     liter: 20
@@ -161,7 +172,7 @@ Item {
                     onWantedTemperatureChanged: MainViewMgr.brewery.mlt.wantedTemp = wantedTemperature
                 }
 
-                Button {
+                /*Button {
                     id: image3
                     Layout.minimumWidth: 100
                     checkable: true
@@ -171,11 +182,13 @@ Item {
                         sourceSize.width: 100
                         anchors.centerIn: parent
                     }
-                }
+                }*/
 
                 Kettle{
                     id: kettleBlt
-                    Layout.fillWidth: true
+                    //Layout.fillWidth: true
+                    Layout.minimumWidth: 150
+                    Layout.minimumHeight: 300
                     temperature: MainViewMgr.brewery.blt.currentTemp
                     wantedTemperature: MainViewMgr.brewery.blt.wantedTemp
                     liter: MainViewMgr.brewery.blt.currentLiter
@@ -183,7 +196,7 @@ Item {
                     onWantedTemperatureChanged: MainViewMgr.brewery.blt.wantedTemp = wantedTemperature
                 }
 
-                Button {
+                /*Button {
                     id: image5
                     Layout.minimumWidth: 100
                     checkable: true
@@ -193,7 +206,7 @@ Item {
                         sourceSize.width: 100
                         anchors.centerIn: parent
                     }
-                }
+                }*/
             }
         }
 

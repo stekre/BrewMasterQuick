@@ -73,7 +73,7 @@ Item {
               y: 8
               width: 257
               height: 195
-              model: MainViewMgr.brewplan
+              model: MainViewMgr.brewplan.mashplan
               delegate: listDelegate
               focus: true
         }

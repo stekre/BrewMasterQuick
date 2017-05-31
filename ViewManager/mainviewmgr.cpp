@@ -4,9 +4,10 @@ namespace brewmaster
 {
     MainViewMgr::MainViewMgr(QObject *parent) :
         QObject(parent),
-        m_brewery(new Brewery(this))
+        m_brewery(new Brewery(this)),
+        m_brewplan(new Brewplan(this))
     {
-        m_brewplan.append(new Brewplan(50,25));
+        //m_brewplan.mashplan.append(new Brewplan(50,25));
     }
 
     Brewery *MainViewMgr::brewery() const
@@ -14,7 +15,7 @@ namespace brewmaster
         return m_brewery;
     }
 
-    QList<QObject *> MainViewMgr::brewplan() const
+    Brewplan *MainViewMgr::brewplan() const
     {
         return m_brewplan;
     }
@@ -28,7 +29,7 @@ namespace brewmaster
         emit breweryChanged(brewery);
     }
 
-    void MainViewMgr::setBrewplan(QList<QObject *> brewplan)
+    void MainViewMgr::setBrewplan(Brewplan *brewplan)
     {
         if (m_brewplan == brewplan)
             return;
