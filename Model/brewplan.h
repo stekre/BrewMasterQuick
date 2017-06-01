@@ -7,7 +7,7 @@
 class Brewplan : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QList<QObject*> mashplan READ mashplan WRITE setMashplan NOTIFY mashplanChanged)
+    Q_PROPERTY(QList<QObject*> mashplan READ mashplan NOTIFY mashplanChanged)
     //Q_PROPERTY(QList<QObject*> brewplan READ brewplan WRITE setBrewplan NOTIFY brewplanChanged)
 
 public:
@@ -19,7 +19,8 @@ signals:
     void mashplanChanged(QList<QObject*> mashplan);
 
 public slots:
-    void setMashplan(QList<QObject*> mashplan);
+    //void setMashplan(QList<QObject*> mashplan);
+    void addMashStep(int temp, int min);
 
 private:
     QList<QObject*> m_mashplan;

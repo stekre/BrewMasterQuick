@@ -13,9 +13,11 @@
         <file>Pictures/Kettle3.svg</file>
         <file>NumPad.qml</file>
         <file>SwipeViewControl.qml</file>
-        <file>Pictures/pump.svg</file>
-        <file>Pictures/pump2.svg</file>
-        <file>Pictures/pump3.svg</file>
+        <file>Pictures/pumpOff.svg</file>
+        <file>Pictures/pumpOn.svg</file>
+        <file>Pictures/valveOff.svg</file>
+        <file>Pictures/valveOn.svg</file>
+        <file>Pictures/herms.svg</file>
     </qresource>
     <qresource prefix="/json">
         <file>settings.json</file>

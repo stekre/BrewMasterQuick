@@ -67,14 +67,14 @@ Item {
                 /*ControlButton{
                     id: buttonMash
                     Layout.alignment: Qt.AlignCenter
-                    buttonText: "MASH"                    
+                    buttonText: "MASH"
                     onClicked: {
                         toggleMltPower()
                         kettleMlt.wavesVisible = true
                     }
                 }*/
 
-                ControlButton{
+                /*ControlButton{
                     id: buttonCirculate
                     Layout.alignment: Qt.AlignCenter
                     buttonText: "CIRCULATE"
@@ -82,7 +82,7 @@ Item {
                         toggleMltPower()
                         kettleMlt.wavesVisible = true
                     }
-                }
+                }*/
 
                 ControlButton{
                     id: buttonBoil
@@ -117,23 +117,24 @@ Item {
                 Layout.alignment: Qt.AlignTop
                 anchors.fill: parent
 
-                /*Rectangle{
-                    Layout.minimumWidth: 100
-                    Layout.minimumHeight: 100
-                    color: "red"
-                }*/
                 Button {
                     id: image1
-                    Layout.minimumWidth: 100
+                    Layout.minimumWidth: 50
                     anchors.verticalCenter: kettleHlt.verticalCenter
                     anchors.right: kettleHlt.left
+                    anchors.verticalCenterOffset: 50
                     checkable: true
                     z: 3
                     background: Image {
-                        source: image1.checked ? "Pictures/pump3.svg" : "Pictures/pump2.svg"
-                        sourceSize.width: 100
+                        source: image1.checked ? "Pictures/valveOn.svg" : "Pictures/valveOff.svg"
+                        sourceSize.width: 50
                         anchors.centerIn: parent
                     }
+                    onClicked: {
+                        toggleHltPower()
+                        kettleHlt.wavesVisible = true
+                    }
+                    //TODO animate water?
                 }
                 Kettle{
                     id: kettleHlt
@@ -148,23 +149,46 @@ Item {
 
                 }
 
-                /*Button {
-                    id: image2
-                    Layout.minimumWidth: 100
-                    checkable: true
-                    z: 3
-                    background: Image {
-                        source: image2.checked ? "Pictures/pump3.svg" : "Pictures/pump2.svg"
-                        sourceSize.width: 100
-                        anchors.centerIn: parent
+                Column{
+                    id:mashsteps
+                    anchors.verticalCenter: kettleHlt.verticalCenter
+                    anchors.left: kettleHlt.right
+
+                    Button {
+                        id: stepmash
+                        Layout.minimumWidth: 100
+                        Layout.maximumWidth: 100
+                        checkable: true
+                        background: Image {
+                            source: stepmash.checked ? "Pictures/pumpOn.svg" : "Pictures/pumpOff.svg"
+                            sourceSize.width: 100
+                            anchors.centerIn: parent
+                        }
+                        onClicked: {
+                            toggleMltPower()
+                            kettleMlt.wavesVisible = true
+                        }
                     }
-                }*/
+
+                    Button {
+                        id: image2
+                        Layout.minimumWidth: 100
+                        checkable: true
+                        background: Image {
+                            source: image2.checked ? "Pictures/pumpOn.svg" : "Pictures/pumpOff.svg"
+                            sourceSize.width: 100
+                            anchors.centerIn: parent
+                        }
+                    }
+                }
 
                 Kettle{
                     id: kettleMlt
                     //Layout.fillWidth: true
                     Layout.minimumWidth: 150
                     Layout.minimumHeight: 300
+                    //anchors.verticalCenter: mashsteps.verticalCenter
+                    anchors.left: mashsteps.right
                     temperature: MainViewMgr.brewery.mlt.currentTemp
                     wantedTemperature: MainViewMgr.brewery.mlt.wantedTemp
                     liter: 20
