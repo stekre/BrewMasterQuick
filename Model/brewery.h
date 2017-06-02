@@ -2,7 +2,7 @@
 #define BREWERY_H
 
 #include <QObject>
-#include "kettle.h"
+#include "Model/kettle.h"
 
 namespace brewmaster
 {

@@ -11,6 +11,7 @@ QDoubleValidator(bottom, top, decimals, parent)
 
 QValidator::State TextFieldDoubleValidator::validate(QString & s, int & pos) const
 {
+    Q_UNUSED(pos);
     if (s.isEmpty()) {
         // allow empty field or minus sign
         return QValidator::Intermediate;

@@ -386,11 +386,7 @@ Item {
         font.family: "Verdana"
         font.pointSize: 15
         onClicked: {
-            listModel.append({
-                                 "Name": +textFieldNameHops.text,
-                                 "Grams": +textFieldGramsHops.text,
-                                 "Minute": +textFieldMinuteHops.text
-                             })
+
         }
     }
     

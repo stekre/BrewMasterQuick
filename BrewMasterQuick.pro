@@ -10,13 +10,14 @@ QT_VIRTUALKEYBOARD_STYLE=test
 
 SOURCES += main.cpp \
     textfielddoublevalidator.cpp \
-    brewery.cpp \
-    kettle.cpp \
     ViewManager/mainviewmgr.cpp \
     Model/settings.cpp \
     Model/brewplan.cpp \
     Model/mashdata.cpp \
-    Model/hopsdata.cpp
+    Model/hopsdata.cpp \
+    Model/brewery.cpp \
+    Model/kettle.cpp \
+    Model/clock.cpp
 
 RESOURCES += qml.qrc
 
@@ -47,13 +48,14 @@ DISTFILES += \
     Style/QtQuick/VirtualKeyboard/Styles/test/style.qml \
 
 HEADERS += \
-    textfielddoublevalidator.h \
-    brewery.h \
-    kettle.h \
+    textfielddoublevalidator.h \    
     ViewManager/mainviewmgr.h \
     Model/settings.h \
     Model/brewplan.h \
     Model/mashdata.h \
-    Model/hopsdata.h
+    Model/hopsdata.h \
+    Model/brewery.h \
+    Model/kettle.h \
+    Model/clock.h
 
 FORMS +=

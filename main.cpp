@@ -3,7 +3,7 @@
 #include <QQmlContext>
 #include "ViewManager/mainviewmgr.h"
 #include "textfielddoublevalidator.h"
-#include "brewery.h"
+//#include "Model/brewery.h"
 #include "Model/settings.h"
 
 int main(int argc, char *argv[])

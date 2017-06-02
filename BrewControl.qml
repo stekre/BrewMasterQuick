@@ -11,7 +11,7 @@ Item {
     {
         MainViewMgr.brewery.hlt.heaterActive = !MainViewMgr.brewery.hlt.heaterActive
         myLiter+=10
-        console.log(myLiter)
+        console.log(myLiter)        
     }
 
     function toggleMltPower()
@@ -19,11 +19,17 @@ Item {
         MainViewMgr.brewery.mlt.heaterActive = !MainViewMgr.brewery.mlt.heaterActive
         myLiter-=10
         console.log(myLiter)
+        MainViewMgr.clock.start()
     }
 
     function toggleBltPower()
     {
         MainViewMgr.brewery.blt.heaterActive = !MainViewMgr.brewery.blt.heaterActive
+    }
+
+    function convertToTime()
+    {
+
     }
 
     width: mWidth
@@ -194,6 +200,17 @@ Item {
                     liter: 20
                     powerActive: MainViewMgr.brewery.mlt.heaterActive
                     onWantedTemperatureChanged: MainViewMgr.brewery.mlt.wantedTemp = wantedTemperature
+                }
+
+                Text{
+                    id: timer
+                    anchors.verticalCenter: kettleMlt.verticalCenter
+                    anchors.left: kettleMlt.right
+                    color: "#ffffff"
+                    font.family: "Verdana"
+                    font.pixelSize: 30
+                    text: Math.floor(ToMillis MainViewMgr.clock.elapsed/1000/60) +":" +(MainViewMgr.clock.elapsed/1000%60)
+                    visible: true
                 }
 
                 /*Button {
