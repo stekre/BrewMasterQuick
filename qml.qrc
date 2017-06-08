@@ -18,6 +18,7 @@
         <file>Pictures/valveOff.svg</file>
         <file>Pictures/valveOn.svg</file>
         <file>Pictures/herms.svg</file>
+        <file>Pictures/pumpBodyOn.svg</file>
     </qresource>
     <qresource prefix="/json">
         <file>settings.json</file>

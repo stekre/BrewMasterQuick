@@ -93,7 +93,8 @@ Item {
                 ControlButton{
                     id: buttonBoil
                     Layout.alignment: Qt.AlignCenter
-                    buttonText: "BOIL WORT"
+                    buttonText: "HOPS ADDED"
+                    enabled: textBrewControlAnimation.running
                     onClicked: {
                         toggleBltPower()
                         kettleBlt.wavesVisible = true
@@ -174,6 +175,20 @@ Item {
                             toggleMltPower()
                             kettleMlt.wavesVisible = true
                         }
+                        Image{
+                           id: pumpBody
+                           source: "Pictures/pumpBodyOn.svg"
+                           sourceSize.width: 100
+                           visible: stepmash.checked
+                           anchors.centerIn: stepmash
+                           RotationAnimator on rotation {
+                                   from: 0;
+                                   to: 360;
+                                   duration: 1000
+                                   loops: Animation.Infinite
+                                   running: stepmash.checked
+                               }
+                        }
                     }
 
                     Button {
@@ -184,6 +199,20 @@ Item {
                             source: image2.checked ? "Pictures/pumpOn.svg" : "Pictures/pumpOff.svg"
                             sourceSize.width: 100
                             anchors.centerIn: parent
+                        }
+                        Image{
+                           id: pumpBodyImage2
+                           source: "Pictures/pumpBodyOn.svg"
+                           sourceSize.width: 100
+                           visible: image2.checked
+                           anchors.centerIn: image2
+                           RotationAnimator on rotation {
+                                   from: 0;
+                                   to: 360;
+                                   duration: 1000
+                                   loops: Animation.Infinite
+                                   running: image2.checked
+                               }
                         }
                     }
                 }
@@ -209,7 +238,7 @@ Item {
                     color: "#ffffff"
                     font.family: "Verdana"
                     font.pixelSize: 30
-                    text: Math.floor(ToMillis MainViewMgr.clock.elapsed/1000/60) +":" +(MainViewMgr.clock.elapsed/1000%60)
+                    text: Math.floor(MainViewMgr.clock.elapsed/1000/60) +":" +Math.floor(MainViewMgr.clock.elapsed/1000%60)
                     visible: true
                 }
 
@@ -258,7 +287,7 @@ Item {
             Layout.preferredHeight: 60
             clip: true
 
-            ControlButton{
+            /*ControlButton{
                 id: buttonHops
                 anchors.centerIn: parent
                 buttonText: "HOPS ADDED"
@@ -266,7 +295,7 @@ Item {
                     //toggleBltPower()
                     //kettleBlt.wavesVisible = true
                 }
-            }
+            }*/
 
             Text {
                 id: textBrewControl
@@ -279,10 +308,13 @@ Item {
                 visible: true
 
                 NumberAnimation on x {
+                    id: textBrewControlAnimation
                     loops: Animation.Infinite
                     duration: 10000
                     from: 800
                     to: -1*textBrewControl.width
+                    running: !buttonBoil.checked    //This need to go through model
+                    alwaysRunToEnd: true
                 }
             }
         }

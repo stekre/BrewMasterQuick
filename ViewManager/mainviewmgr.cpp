@@ -8,7 +8,7 @@ namespace brewmaster
         m_brewplan(new Brewplan(this)),
         m_clock(new Clock(this))
     {
-        //m_brewplan.mashplan.append(new Brewplan(50,25));
+
     }
 
     Brewery *MainViewMgr::brewery() const

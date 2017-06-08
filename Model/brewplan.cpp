@@ -20,6 +20,22 @@ void Brewplan::addMashStep(int temp, int min)
     emit mashplanChanged(m_mashplan);
 }
 
+void Brewplan::notifyMashTemp()
+{
+    //when new clock min mlt
+    //check if same as step in mashplan
+    //if same, notify
+    //else, do nothing
+}
+
+void Brewplan::notifyHopsAddition()
+{
+    //when new clock min blt
+    //check if same as step in hopsplan
+    //if same notify
+    //else do nothing
+}
+
 /*void Brewplan::setMashplan(QList<QObject *> mashplan)
 {
     if (m_mashplan == mashplan)
